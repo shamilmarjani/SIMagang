@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Mahasiswa - SIMM</title>
+    <!-- Use Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="logo-container">
+                <div class="logo-icons">
+                    <div class="logo-icon y"></div>
+                    <div class="logo-icon b"></div>
+                    <div class="logo-icon c"></div>
+                </div>
+                <div class="logo-text-inner">
+                    <span class="logo-text-jti">JTI</span>
+                    <span class="logo-text-desc">JURUSAN<br>TEKNOLOGI<br>INFORMASI</span>
+                </div>
+            </a>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">Dashbord</a>
+                <a href="kelompok.html" class="nav-item">Kelompok</a>
+                <a href="pendaftaran.html" class="nav-item">Pendaftaran</a>
+                <a href="profil.html" class="nav-item active">Profil</a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-item logout-btn">Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Profil Card -->
+            <div class="card profile-card">
+                <div class="card-header dark">
+                    <h3>Profile Mahasiswa</h3>
+                </div>
+                <div class="card-body">
+                    <form class="profile-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nama Lengkap</label>
+                                <input type="text" id="nama-lengkap" value="Sultan" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>NIM</label>
+                                <input type="text" id="nim" value="123456789" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Program Studi</label>
+                                <input type="text" id="program-studi" value="Teknik Komputer" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Semester</label>
+                                <input type="text" id="semester" value="6" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="email" value="Sultan@student.ac.id" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>No Telepon</label>
+                                <input type="text" id="no-telepon" value="08123456789" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Kelompok</label>
+                                <input type="text" value="Magang Web Dev" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Peran Dalam Kelompok</label>
+                                <input type="text" value="Ketua" readonly>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" id="btn-edit-profile" class="btn btn-dark">Edit Profile</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        const btnEdit = document.getElementById('btn-edit-profile');
+        const editableFields = ['nama-lengkap', 'program-studi', 'semester', 'email', 'no-telepon'];
+        
+        let isEditing = false;
+
+        btnEdit.addEventListener('click', () => {
+            if (!isEditing) {
+                // Aktifkan mode edit
+                editableFields.forEach(id => {
+                    const input = document.getElementById(id);
+                    if(input) {
+                        input.removeAttribute('readonly');
+                        input.style.border = '1px solid #00A3FF';
+                        input.style.backgroundColor = '#F5FBFF'; // sedikit kebiruan agar jelas bisa diedit
+                    }
+                });
+                btnEdit.innerText = 'Simpan Perubahan';
+                isEditing = true;
+            } else {
+                // Simpan perubahan
+                editableFields.forEach(id => {
+                    const input = document.getElementById(id);
+                    if(input) {
+                        input.setAttribute('readonly', 'true');
+                        input.style.border = '1px solid #EAEAEA';
+                        input.style.backgroundColor = '#fff';
+                    }
+                });
+                btnEdit.innerText = 'Edit Profile';
+                isEditing = false;
+                alert('Data Profil berhasil disimpan!');
+            }
+        });
+    </script>
+</body>
+</html>

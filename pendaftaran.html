@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Magang - SIMM</title>
+    <!-- Use Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="logo-container">
+                <div class="logo-icons">
+                    <div class="logo-icon y"></div>
+                    <div class="logo-icon b"></div>
+                    <div class="logo-icon c"></div>
+                </div>
+                <div class="logo-text-inner">
+                    <span class="logo-text-jti">JTI</span>
+                    <span class="logo-text-desc">JURUSAN<br>TEKNOLOGI<br>INFORMASI</span>
+                </div>
+            </a>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">Dashbord</a>
+                <a href="kelompok.html" class="nav-item">Kelompok</a>
+                <a href="pendaftaran.html" class="nav-item active">Pendaftaran</a>
+                <a href="profil.html" class="nav-item">Profil</a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-item logout-btn">Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <div class="card pendaftaran-card">
+                <div class="card-header dark">
+                    <h3>Form Pendaftaran Magang</h3>
+                </div>
+                <div class="card-body p-0" style="padding: 25px; background: white;">
+                    
+                    <div id="accordion">
+                        
+                        <!-- Tahap 1 -->
+                        <div class="tahap-container active" id="step-1">
+                            <div class="t-header t-header-dark" id="header-1">Tahap 1 : Lokasi magang</div>
+                            
+                            <!-- Form -->
+                            <div class="t-body t-form" id="form-1">
+                                <form class="profile-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Perusahaan</label>
+                                            <input type="text">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nama Pimpinan</label>
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Bidang</label>
+                                            <input type="text">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Telepon</label>
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Alamat</label>
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-dark" onclick="nextStep(1)">Simpan</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Completed -->
+                            <div class="t-body t-completed" id="completed-1" style="display: none;">
+                                <div class="completed-grid">
+                                    <div>
+                                        <p>Perusahaan: PT. Maju Bersama</p>
+                                        <p>Bidang: Teknik Komputer</p>
+                                        <p>Alamat: Jl. mana yaa no 123</p>
+                                    </div>
+                                    <div>
+                                        <p>Contact Person: ibu ani</p>
+                                        <p>Telepon: 08123456789</p>
+                                        <p>Status: <span class="badge badge-info">Disetujui Korbid</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tahap 2 -->
+                        <div class="tahap-container locked" id="step-2">
+                            <div class="t-header t-header-white" id="header-2">Tahap 2 : Proposal Kelompok</div>
+                            
+                            <div class="t-body t-form" id="form-2" style="display: none;">
+                                <form class="profile-form">
+                                    <div class="form-group">
+                                        <label>Judul Proposal</label>
+                                        <input type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="display: flex; gap: 10px;">
+                                            <input type="file" id="file-tahap2" style="display: none;" onchange="document.getElementById('filename-tahap2').value = this.files[0] ? this.files[0].name : ''">
+                                            <button type="button" class="btn btn-dark" onclick="document.getElementById('file-tahap2').click()">Pilih File</button>
+                                            <input type="text" id="filename-tahap2" style="flex: 1;" readonly placeholder="Pilih file pdf...">
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-dark" onclick="nextStep(2)">Simpan</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="t-body t-completed" id="completed-2" style="display: none;">
+                                <div class="completed-grid">
+                                    <div>
+                                        <p>Judul Proposal: Sistem informasi pendaftaran magang</p>
+                                        <p>File: Proposal_Kelompok.pdf</p>
+                                        <p>Status: <span class="badge badge-info">Disetujui Korbid</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tahap 3 -->
+                        <div class="tahap-container locked" id="step-3">
+                            <div class="t-header t-header-white" id="header-3">Tahap 3 : Berkas Anggota</div>
+                            
+                            <div class="t-body t-form" id="form-3" style="display: none;">
+                                <div class="tabs" style="margin-bottom: 20px; border-bottom: 1px solid #EAEAEA; padding-bottom: 0;">
+                                    <div class="tab active" style="padding: 10px;">Sultan (Ketua)</div>
+                                    <div class="tab" style="padding: 10px;">Budi</div>
+                                    <div class="tab" style="padding: 10px;">Ani</div>
+                                </div>
+                                <form class="profile-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Formulir Pendaftaran</label>
+                                            <input type="file" id="file-t3-1" style="display: none;" onchange="document.getElementById('filename-t3-1').value = this.files[0] ? this.files[0].name : ''">
+                                            <input type="text" id="filename-t3-1" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-t3-1').click()" style="cursor: pointer;">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Scan KTM</label>
+                                            <input type="file" id="file-t3-2" style="display: none;" onchange="document.getElementById('filename-t3-2').value = this.files[0] ? this.files[0].name : ''">
+                                            <input type="text" id="filename-t3-2" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-t3-2').click()" style="cursor: pointer;">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Transkrip Nilai</label>
+                                            <input type="file" id="file-t3-3" style="display: none;" onchange="document.getElementById('filename-t3-3').value = this.files[0] ? this.files[0].name : ''">
+                                            <input type="text" id="filename-t3-3" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-t3-3').click()" style="cursor: pointer;">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Pas Foto</label>
+                                            <input type="file" id="file-t3-4" style="display: none;" onchange="document.getElementById('filename-t3-4').value = this.files[0] ? this.files[0].name : ''">
+                                            <input type="text" id="filename-t3-4" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-t3-4').click()" style="cursor: pointer;">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>CV</label>
+                                            <input type="file" id="file-t3-5" style="display: none;" onchange="document.getElementById('filename-t3-5').value = this.files[0] ? this.files[0].name : ''">
+                                            <input type="text" id="filename-t3-5" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-t3-5').click()" style="cursor: pointer;">
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-dark" onclick="nextStep(3)">Simpan</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="t-body t-completed" id="completed-3" style="display: none;">
+                                <div class="completed-grid">
+                                    <div>
+                                        <p>Status Berkas: <span class="badge badge-info">Semua Anggota Lengkap</span></p>
+                                        <p>Tanggal Verifikasi: 1 Februari 2026</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tahap 4 -->
+                        <div class="tahap-container locked" id="step-4">
+                            <div class="t-header t-header-white" id="header-4">Tahap 4 : Bukti Diterima</div>
+                            
+                            <div class="t-body t-form" id="form-4" style="display: none;">
+                                <form class="profile-form">
+                                    <div class="form-group">
+                                        <label>Tempat Diterima</label>
+                                        <input type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="display: flex; gap: 10px;">
+                                            <input type="file" id="file-tahap4" style="display: none;" onchange="document.getElementById('filename-tahap4').value = this.files[0] ? this.files[0].name : ''">
+                                            <button type="button" class="btn btn-dark" onclick="document.getElementById('file-tahap4').click()">Pilih File</button>
+                                            <input type="text" id="filename-tahap4" style="flex: 1;" readonly placeholder="Pilih file surat penerimaan...">
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-dark" onclick="nextStep(4)">Simpan</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="t-body t-completed" id="completed-4" style="display: none;">
+                                <div class="completed-grid">
+                                    <div>
+                                        <p>File: surat_penerimaan_magang.pdf</p>
+                                        <p>Tanggal Upload: 10 Februari 2026</p>
+                                        <p>Status: <span class="badge badge-info">Diverifikasi Admin</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tahap 5 -->
+                        <div class="tahap-container locked" id="step-5">
+                            <div class="t-header t-header-white" id="header-5">Tahap 5 : Plotting Dosen</div>
+                            
+                            <div class="t-body t-form" id="form-5" style="display: none;">
+                                <div style="background: #F8F9FA; padding: 20px; border-radius: 8px;">
+                                    <p style="margin-bottom: 10px;">Status Plotting: <span style="background: #FFFF00; color: #111; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;">Menunggu Plotting Oleh Korbid</span></p>
+                                    <p style="font-size: 14px; margin-bottom: 5px;">Kelompok anda sedang menunggu penentuan dosen pembimbing oleh koordinator bidang</p>
+                                    <p style="font-size: 14px;">Estimasi waktu plotting: 1 - 2 hari kerja</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        function nextStep(current) {
+            // Selesaikan tahap saat ini
+            const currentStep = document.getElementById(`step-${current}`);
+            const currentHeader = document.getElementById(`header-${current}`);
+            const currentForm = document.getElementById(`form-${current}`);
+            const currentCompleted = document.getElementById(`completed-${current}`);
+
+            // Ubah header
+            currentHeader.classList.remove('t-header-dark');
+            currentHeader.classList.add('t-header-white');
+            currentHeader.innerText = currentHeader.innerText + ' (selesai)';
+            
+            // Sembunyikan form, tampilkan completed box
+            if(currentForm) currentForm.style.display = 'none';
+            if(currentCompleted) currentCompleted.style.display = 'block';
+
+            // Buka tahap berikutnya (jika ada)
+            const next = current + 1;
+            const nextStepContainer = document.getElementById(`step-${next}`);
+            
+            if (nextStepContainer) {
+                nextStepContainer.classList.remove('locked');
+                
+                const nextHeader = document.getElementById(`header-${next}`);
+                const nextForm = document.getElementById(`form-${next}`);
+                
+                if(nextHeader) {
+                    nextHeader.classList.remove('t-header-white');
+                    nextHeader.classList.add('t-header-dark');
+                }
+                
+                if(nextForm) {
+                    nextForm.style.display = 'block';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelompok Magang - SIMM</title>
+    <!-- Use Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="logo-container">
+                <div class="logo-icons">
+                    <div class="logo-icon y"></div>
+                    <div class="logo-icon b"></div>
+                    <div class="logo-icon c"></div>
+                </div>
+                <div class="logo-text-inner">
+                    <span class="logo-text-jti">JTI</span>
+                    <span class="logo-text-desc">JURUSAN<br>TEKNOLOGI<br>INFORMASI</span>
+                </div>
+            </a>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">Dashbord</a>
+                <a href="kelompok.html" class="nav-item active">Kelompok</a>
+                <a href="pendaftaran.html" class="nav-item">Pendaftaran</a>
+                <a href="profil.html" class="nav-item">Profil</a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-item logout-btn">Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Kelompok Card -->
+            <div class="card kelompok-card">
+                <div class="card-header dark">
+                    <h3>Kelompok Magang Saya</h3>
+                </div>
+                
+                <div class="tabs-container">
+                    <div class="tabs">
+                        <div class="tab active">Informasi Kelompok</div>
+                        <div class="tab">Anggota</div>
+                    </div>
+                </div>
+
+                <div class="card-body" style="padding-top: 15px;">
+                    
+                    <!-- Tab Content 1: Informasi -->
+                    <div id="tab-informasi" class="tab-content active">
+                        <form class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nama Kelompok</label>
+                                    <input type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Program Studi</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Ketua Kelompok</label>
+                                    <input type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Jumlah Anggota</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Lokasi Magang</label>
+                                    <input type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Status Kelompok</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-dark">Simpan Perubahan</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Tab Content 2: Anggota -->
+                    <div id="tab-anggota" class="tab-content">
+                        <h4 class="member-section-title">Ketua Kelompok</h4>
+                        <div class="member-card">
+                            <div class="member-avatar"></div>
+                            <div class="member-info">
+                                <div class="member-name-row">
+                                    <h4>Sultan</h4>
+                                    <span class="badge-role">Ketua</span>
+                                </div>
+                                <p class="member-nim">NIM: 123456789</p>
+                            </div>
+                            <div class="member-status">
+                                <span class="badge-status">Berkas Lengkap</span>
+                            </div>
+                        </div>
+
+                        <h4 class="member-section-title">Anggota</h4>
+                        <div id="member-list-container">
+                            <!-- Daftar anggota akan ditambahkan di sini -->
+                        </div>
+
+                        <!-- Form Tambah Anggota -->
+                        <div class="add-member-form" style="margin-top: 30px; background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #EAEAEA;">
+                            <h5 style="margin-bottom: 15px; font-size: 15px; font-weight: 600; color: #222;">Tambah Anggota Baru</h5>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nama Mahasiswa</label>
+                                    <input type="text" id="new-member-name" placeholder="Masukkan Nama">
+                                </div>
+                                <div class="form-group">
+                                    <label>NIM</label>
+                                    <input type="text" id="new-member-nim" placeholder="Masukkan NIM">
+                                </div>
+                            </div>
+                            <div class="form-actions" style="margin-top: 20px;">
+                                <button type="button" class="btn btn-dark" id="btn-tambah-anggota">Tambah Anggota</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const tabInformasi = document.getElementById('tab-informasi');
+        const tabAnggota = document.getElementById('tab-anggota');
+
+        tabs[0].addEventListener('click', () => {
+            tabs[0].classList.add('active');
+            tabs[1].classList.remove('active');
+            tabInformasi.classList.add('active');
+            tabAnggota.classList.remove('active');
+        });
+
+        tabs[1].addEventListener('click', () => {
+            tabs[1].classList.add('active');
+            tabs[0].classList.remove('active');
+            tabInformasi.classList.remove('active');
+            tabAnggota.classList.add('active');
+        });
+
+        // Check URL parameter to switch tab automatically
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('tab') === 'anggota') {
+            tabs[1].click();
+        }
+
+        // Fitur Tambah Anggota
+        document.getElementById('btn-tambah-anggota').addEventListener('click', () => {
+            const nameInput = document.getElementById('new-member-name');
+            const nimInput = document.getElementById('new-member-nim');
+            const name = nameInput.value.trim();
+            const nim = nimInput.value.trim();
+
+            if (name && nim) {
+                const memberList = document.getElementById('member-list-container');
+                
+                const card = document.createElement('div');
+                card.className = 'member-card';
+                card.innerHTML = `
+                    <div class="member-avatar"></div>
+                    <div class="member-info">
+                        <div class="member-name-row">
+                            <h4>${name}</h4>
+                        </div>
+                        <p class="member-nim">NIM: ${nim}</p>
+                    </div>
+                    <div class="member-status">
+                        <span class="badge-status">Berkas Belum</span>
+                    </div>
+                `;
+                
+                memberList.appendChild(card);
+                
+                // Reset input
+                nameInput.value = '';
+                nimInput.value = '';
+            } else {
+                alert('Mohon isi Nama dan NIM terlebih dahulu!');
+            }
+        });
+    </script>
+</body>
+</html>
