@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Mahasiswa - SIMM</title>
+    <!-- Use Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="logo-container">
+                <div class="logo-icons">
+                    <div class="logo-icon y"></div>
+                    <div class="logo-icon b"></div>
+                    <div class="logo-icon c"></div>
+                </div>
+                <div class="logo-text-inner">
+                    <span class="logo-text-jti">JTI</span>
+                    <span class="logo-text-desc">JURUSAN<br>TEKNOLOGI<br>INFORMASI</span>
+                </div>
+            </a>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">Dashboard</a>
+                <a href="#" class="nav-item">Kelompok</a>
+                <a href="#" class="nav-item">Pendaftaran</a>
+                <a href="#" class="nav-item">Profil</a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-item logout-btn">Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Welcome Card -->
+            <div class="welcome-card">
+                <img src="profile.png" alt="Profile" class="profile-img">
+                <div class="welcome-text">
+                    <h2>Selamat datang, Sultan</h2>
+                    <p>NIM: 123456789 | Prodi: Teknik Komputer | Semester 6</p>
+                </div>
+            </div>
+
+            <!-- Informasi Kelompok Magang -->
+            <div class="card">
+                <div class="card-header dark">
+                    <h3>Informasi Kelompok Magang</h3>
+                </div>
+                <div class="card-body kel-info">
+                    <div class="kel-details">
+                        <p>Kelompok: Magang Web Dev</p>
+                        <p>Ketua Kelompok: Sultan (anda)</p>
+                        <p>Jumlah anggota: 3 orang</p>
+                        <p>Status Kelompok: <span class="badge badge-dark">Aktif</span></p>
+                    </div>
+                    <div class="kel-action">
+                        <button class="btn btn-dark">Kelola Kelompok</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Status Pendaftaran Magang -->
+            <div class="card">
+                <div class="card-header light">
+                    <h3>Status Pendaftaran Magang</h3>
+                </div>
+                <div class="card-body status-tracking">
+                    <div class="stepper-container">
+                        <div class="step active">
+                            <div class="step-circle">1</div>
+                            <div class="step-title">Lokasi Magang</div>
+                            <div class="step-subtitle">Disetujui</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-circle">2</div>
+                            <div class="step-title">Proposal</div>
+                            <div class="step-subtitle">Belum</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-circle">3</div>
+                            <div class="step-title">Berkas Admin</div>
+                            <div class="step-subtitle">Belum</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-circle">4</div>
+                            <div class="step-title">Bukti Diterima</div>
+                            <div class="step-subtitle">Belum</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-circle">5</div>
+                            <div class="step-title">Plotting</div>
+                            <div class="step-subtitle">Belum</div>
+                        </div>
+                    </div>
+                    <div class="status-action">
+                        <button class="btn btn-light-blue">Lanjutkan Pendaftaran</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anggota Kelompok -->
+            <div class="card">
+                <div class="card-header dark">
+                    <h3>Anggota Kelompok</h3>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>NIM</th>
+                                <th>Peran</th>
+                                <th>Status Berkas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sultan Salahuddin</td>
+                                <td>E41576162</td>
+                                <td>Ketua</td>
+                                <td><span class="badge badge-success">Lengkap</span></td>
+                            </tr>
+                            <tr>
+                                <td>Sultan Salahuddin</td>
+                                <td>E41576162</td>
+                                <td>Anggota</td>
+                                <td><span class="badge badge-success">Lengkap</span></td>
+                            </tr>
+                            <tr>
+                                <td>Sultan Salahuddin</td>
+                                <td>E41576162</td>
+                                <td>Anggota</td>
+                                <td><span class="badge badge-success">Lengkap</span></td>
+                            </tr>
+                            <tr>
+                                <td>Sultan Salahuddin</td>
+                                <td>E41576162</td>
+                                <td>Anggota</td>
+                                <td><span class="badge badge-success">Lengkap</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>
+</html>
