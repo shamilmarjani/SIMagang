@@ -100,39 +100,8 @@
     </div>
 
     <script>
-        const btnEdit = document.getElementById('btn-edit-profile');
-        const editableFields = ['nama-lengkap', 'program-studi', 'semester', 'email', 'no-telepon'];
-        
-        let isEditing = false;
-
-        btnEdit.addEventListener('click', () => {
-            if (!isEditing) {
-                // Aktifkan mode edit
-                editableFields.forEach(id => {
-                    const input = document.getElementById(id);
-                    if(input) {
-                        input.removeAttribute('readonly');
-                        input.style.border = '1px solid #00A3FF';
-                        input.style.backgroundColor = '#F5FBFF'; // sedikit kebiruan agar jelas bisa diedit
-                    }
-                });
-                btnEdit.innerText = 'Simpan Perubahan';
-                isEditing = true;
-            } else {
-                // Simpan perubahan
-                editableFields.forEach(id => {
-                    const input = document.getElementById(id);
-                    if(input) {
-                        input.setAttribute('readonly', 'true');
-                        input.style.border = '1px solid #EAEAEA';
-                        input.style.backgroundColor = '#fff';
-                    }
-                });
-                btnEdit.innerText = 'Edit Profile';
-                isEditing = false;
-                alert('Data Profil berhasil disimpan!');
-            }
-        });
+        // Logika profil ditangani oleh student.js (patchProfilSave) dengan toast notification
     </script>
+    <script src="student.js"></script>
 </body>
 </html>
