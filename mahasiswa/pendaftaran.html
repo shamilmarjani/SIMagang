@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,34 +17,41 @@
             overflow: hidden;
             border: 1.5px solid #DDEAF5;
             margin-top: 6px;
-            box-shadow: 0 2px 8px rgba(28,51,77,0.08);
+            box-shadow: 0 2px 8px rgba(28, 51, 77, 0.08);
         }
+
         .maps-search-bar {
             display: flex;
             gap: 8px;
             margin-bottom: 8px;
         }
+
         .maps-search-bar input {
             flex: 1;
         }
+
         .maps-search-bar button {
             white-space: nowrap;
             flex-shrink: 0;
         }
+
         .maps-coord-row {
             display: flex;
             gap: 10px;
             margin-top: 8px;
         }
+
         .maps-coord-row .form-group {
             flex: 1;
         }
+
         #map-iframe {
             width: 100%;
             height: 300px;
             border: none;
             display: block;
         }
+
         .maps-pin-info {
             font-size: 12px;
             color: #778;
@@ -52,7 +60,12 @@
             align-items: center;
             gap: 5px;
         }
-        .maps-pin-info span { font-weight: 600; color: #1C334D; }
+
+        .maps-pin-info span {
+            font-weight: 600;
+            color: #1C334D;
+        }
+
         .btn-loc {
             background: #fff;
             color: #1C334D;
@@ -68,7 +81,11 @@
             align-items: center;
             gap: 6px;
         }
-        .btn-loc:hover { background: #1C334D; color: #fff; }
+
+        .btn-loc:hover {
+            background: #1C334D;
+            color: #fff;
+        }
 
         /* ===== Tahap 3: Member Tabs ===== */
         .member-tabs {
@@ -77,6 +94,7 @@
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
+
         .member-tab {
             background: #F0F4F8;
             border: 1.5px solid #DDEAF5;
@@ -92,18 +110,25 @@
             align-items: center;
             gap: 6px;
         }
-        .member-tab:hover { border-color: #85B5D3; color: #1C334D; }
+
+        .member-tab:hover {
+            border-color: #85B5D3;
+            color: #1C334D;
+        }
+
         .member-tab.active {
             background: #1C334D;
             color: white;
             border-color: #1C334D;
         }
+
         .mtab-status {
             font-size: 11px;
             padding: 1px 7px;
             border-radius: 10px;
             font-weight: 700;
         }
+
         .member-panel-title {
             font-size: 14px;
             font-weight: 700;
@@ -114,15 +139,20 @@
             border-left: 3px solid #1C334D;
             border-radius: 0 6px 6px 0;
         }
-        .member-panel-title em { font-weight: 400; color: #778; }
+
+        .member-panel-title em {
+            font-weight: 400;
+            color: #778;
+        }
     </style>
 </head>
+
 <body>
     <div class="dashboard-layout">
-        
+
         <!-- Sidebar -->
         <aside class="sidebar">
-            <a href="../../index.html" class="logo-container">
+            <a class="logo-container">
                 <div class="logo-icons">
                     <div class="logo-icon y"></div>
                     <div class="logo-icon b"></div>
@@ -133,34 +163,34 @@
                     <span class="logo-text-desc">JURUSAN<br>TEKNOLOGI<br>INFORMASI</span>
                 </div>
             </a>
-            
+
             <nav class="sidebar-nav">
                 <a href="dashboard.html" class="nav-item">Dashbord</a>
                 <a href="kelompok.html" class="nav-item">Kelompok</a>
                 <a href="pendaftaran.html" class="nav-item active">Pendaftaran</a>
                 <a href="profil.html" class="nav-item">Profil</a>
             </nav>
-            
+
             <div class="sidebar-footer">
-                <a href="../../auth/login.html" class="nav-item logout-btn">Logout</a>
+                <a href="../auth/login.html" class="nav-item logout-btn">Logout</a>
             </div>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
-            
+
             <div class="card pendaftaran-card">
                 <div class="card-header dark">
                     <h3>Form Pendaftaran Magang</h3>
                 </div>
                 <div class="card-body p-0" style="padding: 25px; background: white;">
-                    
+
                     <div id="accordion">
-                        
+
                         <!-- Tahap 1 -->
                         <div class="tahap-container active" id="step-1">
                             <div class="t-header t-header-dark" id="header-1">Tahap 1 : Lokasi magang</div>
-                            
+
                             <!-- Form -->
                             <div class="t-body t-form" id="form-1">
                                 <form class="profile-form" id="form-el-1">
@@ -171,7 +201,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Pimpinan <span style="color:#EA5455">*</span></label>
-                                            <input type="text" id="inp-pimpinan" placeholder="Nama pimpinan / contact person">
+                                            <input type="text" id="inp-pimpinan"
+                                                placeholder="Nama pimpinan / contact person">
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -187,29 +218,35 @@
                                     <div class="form-row">
                                         <div class="form-group">
                                             <label>Alamat <span style="color:#EA5455">*</span></label>
-                                            <input type="text" id="inp-alamat" placeholder="Alamat lengkap perusahaan" oninput="debounceMapUpdate()">
+                                            <input type="text" id="inp-alamat" placeholder="Alamat lengkap perusahaan"
+                                                oninput="debounceMapUpdate()">
                                         </div>
                                     </div>
 
                                     <!-- Google Maps Section -->
                                     <div class="form-group" style="margin-top: 14px;">
-                                        <label>&#128205; Lokasi Magang di Google Maps <span style="color:#EA5455">*</span></label>
-                                        <p style="font-size:12px;color:#778;margin-bottom:8px;">Cari lokasi perusahaan tempat magang di peta, klik <strong>Temukan Lokasi</strong> atau ketik di kolom pencarian untuk memperbarui peta.</p>
+                                        <label>&#128205; Lokasi Magang di Google Maps <span
+                                                style="color:#EA5455">*</span></label>
+                                        <p style="font-size:12px;color:#778;margin-bottom:8px;">Cari lokasi perusahaan
+                                            tempat magang di peta, klik <strong>Temukan Lokasi</strong> atau ketik di
+                                            kolom pencarian untuk memperbarui peta.</p>
 
                                         <!-- Search Bar -->
                                         <div class="maps-search-bar">
-                                            <input type="text" id="maps-search-input" placeholder="Cari lokasi di Google Maps..." onkeydown="if(event.key==='Enter'){event.preventDefault();searchMaps();}">
-                                            <button type="button" class="btn btn-dark" onclick="searchMaps()">&#128269; Cari</button>
-                                            <button type="button" class="btn-loc" onclick="getMyLocation()" title="Gunakan lokasi saya">&#127759; Lokasi Saya</button>
+                                            <input type="text" id="maps-search-input"
+                                                placeholder="Cari lokasi di Google Maps..."
+                                                onkeydown="if(event.key==='Enter'){event.preventDefault();searchMaps();}">
+                                            <button type="button" class="btn btn-dark" onclick="searchMaps()">&#128269;
+                                                Cari</button>
+                                            <button type="button" class="btn-loc" onclick="getMyLocation()"
+                                                title="Gunakan lokasi saya">&#127759; Lokasi Saya</button>
                                         </div>
 
                                         <!-- Map Embed -->
                                         <div class="maps-wrapper">
-                                            <iframe
-                                                id="map-iframe"
+                                            <iframe id="map-iframe"
                                                 src="https://maps.google.com/maps?q=Malang,+Jawa+Timur,+Indonesia&output=embed&z=13"
-                                                allowfullscreen
-                                                loading="lazy"
+                                                allowfullscreen loading="lazy"
                                                 referrerpolicy="no-referrer-when-downgrade">
                                             </iframe>
                                         </div>
@@ -218,19 +255,25 @@
                                         <div class="maps-coord-row">
                                             <div class="form-group">
                                                 <label>Latitude</label>
-                                                <input type="text" id="inp-lat" placeholder="Contoh: -7.9666" readonly style="background:#F8F9FA;">
+                                                <input type="text" id="inp-lat" placeholder="Contoh: -7.9666" readonly
+                                                    style="background:#F8F9FA;">
                                             </div>
                                             <div class="form-group">
                                                 <label>Longitude</label>
-                                                <input type="text" id="inp-lng" placeholder="Contoh: 112.6326" readonly style="background:#F8F9FA;">
+                                                <input type="text" id="inp-lng" placeholder="Contoh: 112.6326" readonly
+                                                    style="background:#F8F9FA;">
                                             </div>
                                         </div>
-                                        <p class="maps-pin-info" id="maps-pin-label">&#8505; Klik tombol <span>Cari</span> atau <span>Lokasi Saya</span> untuk menyimpan koordinat lokasi magang.</p>
+                                        <p class="maps-pin-info" id="maps-pin-label">&#8505; Klik tombol
+                                            <span>Cari</span> atau <span>Lokasi Saya</span> untuk menyimpan koordinat
+                                            lokasi magang.</p>
                                     </div>
 
-                                    <p id="err-1" style="color:#EA5455;font-size:12px;display:none;margin-bottom:8px;">&#9888; Harap isi semua field yang wajib diisi.</p>
+                                    <p id="err-1" style="color:#EA5455;font-size:12px;display:none;margin-bottom:8px;">
+                                        &#9888; Harap isi semua field yang wajib diisi.</p>
                                     <div class="form-actions">
-                                        <button type="button" class="btn btn-dark" onclick="nextStep(1)">Simpan &amp; Lanjut</button>
+                                        <button type="button" class="btn btn-dark" onclick="nextStep(1)">Simpan &amp;
+                                            Lanjut</button>
                                     </div>
                                 </form>
                             </div>
@@ -250,14 +293,16 @@
                                         <p>Status: <span class="badge badge-warning">Menunggu Verifikasi</span></p>
                                     </div>
                                 </div>
-                                <div id="v-map-preview" style="margin-top:14px;border-radius:10px;overflow:hidden;border:1.5px solid #DDEAF5;"></div>
+                                <div id="v-map-preview"
+                                    style="margin-top:14px;border-radius:10px;overflow:hidden;border:1.5px solid #DDEAF5;">
+                                </div>
                             </div>
                         </div>
 
                         <!-- Tahap 2 -->
                         <div class="tahap-container locked" id="step-2">
                             <div class="t-header t-header-white" id="header-2">Tahap 2 : Proposal Kelompok</div>
-                            
+
                             <div class="t-body t-form" id="form-2" style="display: none;">
                                 <form class="profile-form" id="form-el-2">
                                     <div class="form-group">
@@ -267,14 +312,20 @@
                                     <div class="form-group">
                                         <label>File Proposal (PDF) <span style="color:#EA5455">*</span></label>
                                         <div style="display: flex; gap: 10px;">
-                                            <input type="file" id="file-tahap2" accept=".pdf" style="display: none;" onchange="document.getElementById('filename-tahap2').value = this.files[0] ? this.files[0].name : ''">
-                                            <button type="button" class="btn btn-dark" onclick="document.getElementById('file-tahap2').click()">Pilih File</button>
-                                            <input type="text" id="filename-tahap2" style="flex: 1;" readonly placeholder="Pilih file pdf...">
+                                            <input type="file" id="file-tahap2" accept=".pdf" style="display: none;"
+                                                onchange="document.getElementById('filename-tahap2').value = this.files[0] ? this.files[0].name : ''">
+                                            <button type="button" class="btn btn-dark"
+                                                onclick="document.getElementById('file-tahap2').click()">Pilih
+                                                File</button>
+                                            <input type="text" id="filename-tahap2" style="flex: 1;" readonly
+                                                placeholder="Pilih file pdf...">
                                         </div>
                                     </div>
-                                    <p id="err-2" style="color:#EA5455;font-size:12px;display:none;margin-bottom:8px;">&#9888; Harap isi judul dan pilih file proposal.</p>
+                                    <p id="err-2" style="color:#EA5455;font-size:12px;display:none;margin-bottom:8px;">
+                                        &#9888; Harap isi judul dan pilih file proposal.</p>
                                     <div class="form-actions">
-                                        <button type="button" class="btn btn-dark" onclick="nextStep(2)">Simpan &amp; Lanjut</button>
+                                        <button type="button" class="btn btn-dark" onclick="nextStep(2)">Simpan &amp;
+                                            Lanjut</button>
                                     </div>
                                 </form>
                             </div>
@@ -298,9 +349,15 @@
 
                                 <!-- Tab Member -->
                                 <div class="member-tabs" id="member-tabs">
-                                    <button type="button" class="member-tab active" id="mtab-0" onclick="switchMemberTab(0)">&#128100; Sultan <span class="mtab-status" id="mstatus-0"></span></button>
-                                    <button type="button" class="member-tab" id="mtab-1" onclick="switchMemberTab(1)">&#128100; Budi <span class="mtab-status" id="mstatus-1"></span></button>
-                                    <button type="button" class="member-tab" id="mtab-2" onclick="switchMemberTab(2)">&#128100; Ani <span class="mtab-status" id="mstatus-2"></span></button>
+                                    <button type="button" class="member-tab active" id="mtab-0"
+                                        onclick="switchMemberTab(0)">&#128100; Sultan <span class="mtab-status"
+                                            id="mstatus-0"></span></button>
+                                    <button type="button" class="member-tab" id="mtab-1"
+                                        onclick="switchMemberTab(1)">&#128100; Budi <span class="mtab-status"
+                                            id="mstatus-1"></span></button>
+                                    <button type="button" class="member-tab" id="mtab-2"
+                                        onclick="switchMemberTab(2)">&#128100; Ani <span class="mtab-status"
+                                            id="mstatus-2"></span></button>
                                 </div>
 
                                 <!-- Panel Anggota 0: Sultan -->
@@ -310,30 +367,50 @@
                                         <div class="form-row">
                                             <div class="form-group">
                                                 <label>Formulir Pendaftaran</label>
-                                                <input type="file" id="file-m0-1" style="display:none" onchange="setFile('m0-1', this); updateMemberStatus(0)">
-                                                <input type="text" id="fn-m0-1" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m0-1').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m0-1" style="display:none"
+                                                    onchange="setFile('m0-1', this); updateMemberStatus(0)">
+                                                <input type="text" id="fn-m0-1" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m0-1').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                             <div class="form-group">
                                                 <label>Scan KTM</label>
-                                                <input type="file" id="file-m0-2" style="display:none" onchange="setFile('m0-2', this); updateMemberStatus(0)">
-                                                <input type="text" id="fn-m0-2" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m0-2').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m0-2" style="display:none"
+                                                    onchange="setFile('m0-2', this); updateMemberStatus(0)">
+                                                <input type="text" id="fn-m0-2" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m0-2').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                             <div class="form-group">
                                                 <label>Transkrip Nilai</label>
-                                                <input type="file" id="file-m0-3" style="display:none" onchange="setFile('m0-3', this); updateMemberStatus(0)">
-                                                <input type="text" id="fn-m0-3" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m0-3').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m0-3" style="display:none"
+                                                    onchange="setFile('m0-3', this); updateMemberStatus(0)">
+                                                <input type="text" id="fn-m0-3" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m0-3').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group">
                                                 <label>Pas Foto</label>
-                                                <input type="file" id="file-m0-4" accept="image/*" style="display:none" onchange="setFile('m0-4', this); updateMemberStatus(0)">
-                                                <input type="text" id="fn-m0-4" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m0-4').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m0-4" accept="image/*" style="display:none"
+                                                    onchange="setFile('m0-4', this); updateMemberStatus(0)">
+                                                <input type="text" id="fn-m0-4" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m0-4').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                             <div class="form-group">
                                                 <label>CV</label>
-                                                <input type="file" id="file-m0-5" style="display:none" onchange="setFile('m0-5', this); updateMemberStatus(0)">
-                                                <input type="text" id="fn-m0-5" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m0-5').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m0-5" style="display:none"
+                                                    onchange="setFile('m0-5', this); updateMemberStatus(0)">
+                                                <input type="text" id="fn-m0-5" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m0-5').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                         </div>
                                     </form>
@@ -346,30 +423,50 @@
                                         <div class="form-row">
                                             <div class="form-group">
                                                 <label>Formulir Pendaftaran</label>
-                                                <input type="file" id="file-m1-1" style="display:none" onchange="setFile('m1-1', this); updateMemberStatus(1)">
-                                                <input type="text" id="fn-m1-1" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m1-1').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m1-1" style="display:none"
+                                                    onchange="setFile('m1-1', this); updateMemberStatus(1)">
+                                                <input type="text" id="fn-m1-1" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m1-1').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                             <div class="form-group">
                                                 <label>Scan KTM</label>
-                                                <input type="file" id="file-m1-2" style="display:none" onchange="setFile('m1-2', this); updateMemberStatus(1)">
-                                                <input type="text" id="fn-m1-2" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m1-2').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m1-2" style="display:none"
+                                                    onchange="setFile('m1-2', this); updateMemberStatus(1)">
+                                                <input type="text" id="fn-m1-2" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m1-2').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                             <div class="form-group">
                                                 <label>Transkrip Nilai</label>
-                                                <input type="file" id="file-m1-3" style="display:none" onchange="setFile('m1-3', this); updateMemberStatus(1)">
-                                                <input type="text" id="fn-m1-3" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m1-3').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m1-3" style="display:none"
+                                                    onchange="setFile('m1-3', this); updateMemberStatus(1)">
+                                                <input type="text" id="fn-m1-3" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m1-3').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group">
                                                 <label>Pas Foto</label>
-                                                <input type="file" id="file-m1-4" accept="image/*" style="display:none" onchange="setFile('m1-4', this); updateMemberStatus(1)">
-                                                <input type="text" id="fn-m1-4" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m1-4').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m1-4" accept="image/*" style="display:none"
+                                                    onchange="setFile('m1-4', this); updateMemberStatus(1)">
+                                                <input type="text" id="fn-m1-4" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m1-4').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                             <div class="form-group">
                                                 <label>CV</label>
-                                                <input type="file" id="file-m1-5" style="display:none" onchange="setFile('m1-5', this); updateMemberStatus(1)">
-                                                <input type="text" id="fn-m1-5" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m1-5').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m1-5" style="display:none"
+                                                    onchange="setFile('m1-5', this); updateMemberStatus(1)">
+                                                <input type="text" id="fn-m1-5" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m1-5').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                         </div>
                                     </form>
@@ -382,38 +479,60 @@
                                         <div class="form-row">
                                             <div class="form-group">
                                                 <label>Formulir Pendaftaran</label>
-                                                <input type="file" id="file-m2-1" style="display:none" onchange="setFile('m2-1', this); updateMemberStatus(2)">
-                                                <input type="text" id="fn-m2-1" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m2-1').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m2-1" style="display:none"
+                                                    onchange="setFile('m2-1', this); updateMemberStatus(2)">
+                                                <input type="text" id="fn-m2-1" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m2-1').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                             <div class="form-group">
                                                 <label>Scan KTM</label>
-                                                <input type="file" id="file-m2-2" style="display:none" onchange="setFile('m2-2', this); updateMemberStatus(2)">
-                                                <input type="text" id="fn-m2-2" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m2-2').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m2-2" style="display:none"
+                                                    onchange="setFile('m2-2', this); updateMemberStatus(2)">
+                                                <input type="text" id="fn-m2-2" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m2-2').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                             <div class="form-group">
                                                 <label>Transkrip Nilai</label>
-                                                <input type="file" id="file-m2-3" style="display:none" onchange="setFile('m2-3', this); updateMemberStatus(2)">
-                                                <input type="text" id="fn-m2-3" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m2-3').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m2-3" style="display:none"
+                                                    onchange="setFile('m2-3', this); updateMemberStatus(2)">
+                                                <input type="text" id="fn-m2-3" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m2-3').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group">
                                                 <label>Pas Foto</label>
-                                                <input type="file" id="file-m2-4" accept="image/*" style="display:none" onchange="setFile('m2-4', this); updateMemberStatus(2)">
-                                                <input type="text" id="fn-m2-4" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m2-4').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m2-4" accept="image/*" style="display:none"
+                                                    onchange="setFile('m2-4', this); updateMemberStatus(2)">
+                                                <input type="text" id="fn-m2-4" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m2-4').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                             <div class="form-group">
                                                 <label>CV</label>
-                                                <input type="file" id="file-m2-5" style="display:none" onchange="setFile('m2-5', this); updateMemberStatus(2)">
-                                                <input type="text" id="fn-m2-5" readonly placeholder="Klik untuk pilih file" onclick="document.getElementById('file-m2-5').click()" style="cursor:pointer">
+                                                <input type="file" id="file-m2-5" style="display:none"
+                                                    onchange="setFile('m2-5', this); updateMemberStatus(2)">
+                                                <input type="text" id="fn-m2-5" readonly
+                                                    placeholder="Klik untuk pilih file"
+                                                    onclick="document.getElementById('file-m2-5').click()"
+                                                    style="cursor:pointer">
                                             </div>
                                         </div>
                                     </form>
                                 </div>
 
-                                <p id="err-3" style="color:#EA5455;font-size:12px;display:none;margin:12px 0 4px;">&#9888; Setiap anggota wajib mengupload minimal 1 berkas.</p>
+                                <p id="err-3" style="color:#EA5455;font-size:12px;display:none;margin:12px 0 4px;">
+                                    &#9888; Setiap anggota wajib mengupload minimal 1 berkas.</p>
                                 <div class="form-actions" style="margin-top:16px;">
-                                    <button type="button" class="btn btn-dark" onclick="nextStep(3)">Simpan &amp; Lanjut</button>
+                                    <button type="button" class="btn btn-dark" onclick="nextStep(3)">Simpan &amp;
+                                        Lanjut</button>
                                 </div>
                             </div>
 
@@ -421,31 +540,40 @@
                             <div class="t-body t-completed" id="completed-3" style="display: none;">
                                 <div id="v-berkas-summary"></div>
                                 <p style="margin-top:10px">Tanggal Upload: <strong id="v-tgl-berkas">-</strong></p>
-                                <p style="margin-top:6px">Status: <span class="badge badge-warning">Menunggu Verifikasi</span></p>
+                                <p style="margin-top:6px">Status: <span class="badge badge-warning">Menunggu
+                                        Verifikasi</span></p>
                             </div>
                         </div>
 
                         <!-- Tahap 4 -->
                         <div class="tahap-container locked" id="step-4">
                             <div class="t-header t-header-white" id="header-4">Tahap 4 : Bukti Diterima</div>
-                            
+
                             <div class="t-body t-form" id="form-4" style="display: none;">
                                 <form class="profile-form" id="form-el-4">
                                     <div class="form-group">
                                         <label>Tempat Diterima <span style="color:#EA5455">*</span></label>
-                                        <input type="text" id="inp-tempat" placeholder="Nama perusahaan / instansi yang menerima">
+                                        <input type="text" id="inp-tempat"
+                                            placeholder="Nama perusahaan / instansi yang menerima">
                                     </div>
                                     <div class="form-group">
                                         <label>Surat Penerimaan (PDF) <span style="color:#EA5455">*</span></label>
                                         <div style="display: flex; gap: 10px;">
-                                            <input type="file" id="file-tahap4" accept=".pdf,.jpg,.png" style="display: none;" onchange="document.getElementById('filename-tahap4').value = this.files[0] ? this.files[0].name : ''">
-                                            <button type="button" class="btn btn-dark" onclick="document.getElementById('file-tahap4').click()">Pilih File</button>
-                                            <input type="text" id="filename-tahap4" style="flex: 1;" readonly placeholder="Pilih file surat penerimaan...">
+                                            <input type="file" id="file-tahap4" accept=".pdf,.jpg,.png"
+                                                style="display: none;"
+                                                onchange="document.getElementById('filename-tahap4').value = this.files[0] ? this.files[0].name : ''">
+                                            <button type="button" class="btn btn-dark"
+                                                onclick="document.getElementById('file-tahap4').click()">Pilih
+                                                File</button>
+                                            <input type="text" id="filename-tahap4" style="flex: 1;" readonly
+                                                placeholder="Pilih file surat penerimaan...">
                                         </div>
                                     </div>
-                                    <p id="err-4" style="color:#EA5455;font-size:12px;display:none;margin-bottom:8px;">&#9888; Harap isi tempat diterima dan upload surat penerimaan.</p>
+                                    <p id="err-4" style="color:#EA5455;font-size:12px;display:none;margin-bottom:8px;">
+                                        &#9888; Harap isi tempat diterima dan upload surat penerimaan.</p>
                                     <div class="form-actions">
-                                        <button type="button" class="btn btn-dark" onclick="nextStep(4)">Simpan &amp; Lanjut</button>
+                                        <button type="button" class="btn btn-dark" onclick="nextStep(4)">Simpan &amp;
+                                            Lanjut</button>
                                     </div>
                                 </form>
                             </div>
@@ -465,11 +593,14 @@
                         <!-- Tahap 5 -->
                         <div class="tahap-container locked" id="step-5">
                             <div class="t-header t-header-white" id="header-5">Tahap 5 : Plotting Dosen</div>
-                            
+
                             <div class="t-body t-form" id="form-5" style="display: none;">
                                 <div style="background: #F8F9FA; padding: 20px; border-radius: 8px;">
-                                    <p style="margin-bottom: 10px;">Status Plotting: <span style="background: #FFFF00; color: #111; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;">Menunggu Plotting Oleh Korbid</span></p>
-                                    <p style="font-size: 14px; margin-bottom: 5px;">Kelompok anda sedang menunggu penentuan dosen pembimbing oleh koordinator bidang</p>
+                                    <p style="margin-bottom: 10px;">Status Plotting: <span
+                                            style="background: #FFFF00; color: #111; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;">Menunggu
+                                            Plotting Oleh Korbid</span></p>
+                                    <p style="font-size: 14px; margin-bottom: 5px;">Kelompok anda sedang menunggu
+                                        penentuan dosen pembimbing oleh koordinator bidang</p>
                                     <p style="font-size: 14px;">Estimasi waktu plotting: 1 - 2 hari kerja</p>
                                 </div>
                             </div>
@@ -567,17 +698,17 @@
             if (step === 1) {
                 const p = v => document.getElementById(v)?.value.trim();
                 const perusahaan = p('inp-perusahaan'), pimpinan = p('inp-pimpinan'),
-                      bidang = p('inp-bidang'), telepon = p('inp-telepon'), alamat = p('inp-alamat');
+                    bidang = p('inp-bidang'), telepon = p('inp-telepon'), alamat = p('inp-alamat');
                 if (!perusahaan || !pimpinan || !bidang || !telepon || !alamat) {
                     document.getElementById('err-1').style.display = 'block';
                     return false;
                 }
                 document.getElementById('err-1').style.display = 'none';
                 document.getElementById('v-perusahaan').textContent = perusahaan;
-                document.getElementById('v-pimpinan').textContent   = pimpinan;
-                document.getElementById('v-bidang').textContent     = bidang;
-                document.getElementById('v-telepon').textContent    = telepon;
-                document.getElementById('v-alamat').textContent     = alamat;
+                document.getElementById('v-pimpinan').textContent = pimpinan;
+                document.getElementById('v-bidang').textContent = bidang;
+                document.getElementById('v-telepon').textContent = telepon;
+                document.getElementById('v-alamat').textContent = alamat;
 
                 // Simpan koordinat & tampilkan peta mini di ringkasan
                 const lat = document.getElementById('inp-lat').value.trim();
@@ -596,25 +727,25 @@
             }
             if (step === 2) {
                 const judul = document.getElementById('inp-judul')?.value.trim();
-                const file  = document.getElementById('filename-tahap2')?.value.trim();
+                const file = document.getElementById('filename-tahap2')?.value.trim();
                 if (!judul || !file) {
                     document.getElementById('err-2').style.display = 'block';
                     return false;
                 }
                 document.getElementById('err-2').style.display = 'none';
-                document.getElementById('v-judul').textContent        = judul;
+                document.getElementById('v-judul').textContent = judul;
                 document.getElementById('v-file-proposal').textContent = file;
                 return true;
             }
             if (step === 3) {
-                const members  = ['Sultan', 'Budi', 'Ani'];
+                const members = ['Sultan', 'Budi', 'Ani'];
                 const berkasLabels = ['Formulir', 'Scan KTM', 'Transkrip', 'Pas Foto', 'CV'];
                 let allHaveFile = true;
                 let summaryHTML = '';
 
                 members.forEach((nama, mi) => {
-                    const files = [1,2,3,4,5].map(fi => ({
-                        label: berkasLabels[fi-1],
+                    const files = [1, 2, 3, 4, 5].map(fi => ({
+                        label: berkasLabels[fi - 1],
                         name: document.getElementById(`fn-m${mi}-${fi}`)?.value.trim() || ''
                     }));
                     const uploaded = files.filter(f => f.name);
@@ -640,20 +771,20 @@
                 }
                 document.getElementById('err-3').style.display = 'none';
                 document.getElementById('v-berkas-summary').innerHTML = summaryHTML;
-                document.getElementById('v-tgl-berkas').textContent   = hariIni();
+                document.getElementById('v-tgl-berkas').textContent = hariIni();
                 return true;
             }
             if (step === 4) {
                 const tempat = document.getElementById('inp-tempat')?.value.trim();
-                const file   = document.getElementById('filename-tahap4')?.value.trim();
+                const file = document.getElementById('filename-tahap4')?.value.trim();
                 if (!tempat || !file) {
                     document.getElementById('err-4').style.display = 'block';
                     return false;
                 }
                 document.getElementById('err-4').style.display = 'none';
-                document.getElementById('v-tempat').textContent    = tempat;
+                document.getElementById('v-tempat').textContent = tempat;
                 document.getElementById('v-file-bukti').textContent = file;
-                document.getElementById('v-tgl-bukti').textContent  = hariIni();
+                document.getElementById('v-tgl-bukti').textContent = hariIni();
                 return true;
             }
             return true;
@@ -661,7 +792,7 @@
 
         /* ===== Tahap 3: Tab & Status helpers ===== */
         function switchMemberTab(idx) {
-            [0,1,2].forEach(i => {
+            [0, 1, 2].forEach(i => {
                 document.getElementById('mtab-' + i).classList.toggle('active', i === idx);
                 document.getElementById('mpanel-' + i).style.display = i === idx ? '' : 'none';
             });
@@ -673,7 +804,7 @@
         }
 
         function updateMemberStatus(mi) {
-            const count = [1,2,3,4,5].filter(fi =>
+            const count = [1, 2, 3, 4, 5].filter(fi =>
                 document.getElementById('fn-m' + mi + '-' + fi)?.value.trim()
             ).length;
             const badge = document.getElementById('mstatus-' + mi);
@@ -694,8 +825,8 @@
             // Validasi & isi data completed dulu
             if (!isiCompleted(current)) return;
 
-            const currentHeader    = document.getElementById(`header-${current}`);
-            const currentForm      = document.getElementById(`form-${current}`);
+            const currentHeader = document.getElementById(`header-${current}`);
+            const currentForm = document.getElementById(`form-${current}`);
             const currentCompleted = document.getElementById(`completed-${current}`);
 
             // Tandai header selesai
@@ -706,7 +837,7 @@
             }
 
             // Sembunyikan form, tampilkan ringkasan
-            if (currentForm)     currentForm.style.display = 'none';
+            if (currentForm) currentForm.style.display = 'none';
             if (currentCompleted) currentCompleted.style.display = 'block';
 
             // Buka tahap berikutnya
@@ -715,13 +846,14 @@
             if (nextContainer) {
                 nextContainer.classList.remove('locked');
                 const nextHeader = document.getElementById(`header-${next}`);
-                const nextForm   = document.getElementById(`form-${next}`);
+                const nextForm = document.getElementById(`form-${next}`);
                 if (nextHeader) { nextHeader.classList.remove('t-header-white'); nextHeader.classList.add('t-header-dark'); }
-                if (nextForm)   nextForm.style.display = 'block';
+                if (nextForm) nextForm.style.display = 'block';
                 nextContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
     </script>
     <script src="../js/mahasiswa.js"></script>
 </body>
+
 </html>

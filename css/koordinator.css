@@ -24,7 +24,8 @@
     font-family: 'Inter', sans-serif;
 }
 
-body, html {
+body,
+html {
     height: 100%;
     width: 100%;
     background-color: var(--bg-light);
@@ -41,13 +42,13 @@ body, html {
    SIDEBAR (sama persis dengan dashboard mahasiswa)
    ===================== */
 .sidebar {
-    width: 200px;
+    width: 260px;
     background: var(--sidebar-bg);
     color: white;
     display: flex;
     flex-direction: column;
     padding: 30px 0;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
     flex-shrink: 0;
 }
@@ -89,9 +90,17 @@ body, html {
     flex-shrink: 0;
 }
 
-.logo-icon.y { background-color: #4CAF50; }
-.logo-icon.b { background-color: #F44336; }
-.logo-icon.c { background-color: #03A9F4; }
+.logo-icon.y {
+    background-color: #4CAF50;
+}
+
+.logo-icon.b {
+    background-color: #F44336;
+}
+
+.logo-icon.c {
+    background-color: #03A9F4;
+}
 
 .logo-text-inner {
     display: inline-flex;
@@ -132,11 +141,11 @@ body, html {
 }
 
 .nav-item:hover {
-    background-color: rgba(255,255,255,0.08);
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 .nav-item.active {
-    background: linear-gradient(90deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 100%);
     color: white;
 }
 
@@ -175,8 +184,15 @@ body, html {
 }
 
 @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-6px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .nav-subitem {
@@ -191,7 +207,7 @@ body, html {
 }
 
 .nav-subitem:hover {
-    background-color: rgba(255,255,255,0.08);
+    background-color: rgba(255, 255, 255, 0.08);
     color: white;
 }
 
@@ -206,7 +222,7 @@ body, html {
 
 .logout-btn {
     display: block;
-    background: linear-gradient(90deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 /* =====================
@@ -230,8 +246,15 @@ body, html {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Page title bar (untuk halaman selain dashboard) */
@@ -262,7 +285,7 @@ body, html {
     display: flex;
     align-items: center;
     gap: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     margin-bottom: 30px;
 }
 
@@ -272,7 +295,7 @@ body, html {
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #dde8f0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     flex-shrink: 0;
 }
 
@@ -307,7 +330,7 @@ body, html {
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 16px rgba(31,60,88,0.25);
+    box-shadow: 0 4px 16px rgba(31, 60, 88, 0.25);
     position: relative;
     overflow: hidden;
 }
@@ -319,13 +342,13 @@ body, html {
     right: -20px;
     width: 80px;
     height: 80px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
 }
 
 .stat-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(31,60,88,0.35);
+    box-shadow: 0 8px 24px rgba(31, 60, 88, 0.35);
 }
 
 .stat-number {
@@ -349,7 +372,7 @@ body, html {
 .card {
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     margin-bottom: 25px;
     border: 1px solid #EFEFEF;
     overflow: hidden;
@@ -481,8 +504,14 @@ body, html {
     transition: opacity 0.2s;
 }
 
-.btn-setuju:hover:not(:disabled) { opacity: 0.85; }
-.btn-setuju:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-setuju:hover:not(:disabled) {
+    opacity: 0.85;
+}
+
+.btn-setuju:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
 
 .btn-tolak {
     background-color: var(--red-btn);
@@ -496,8 +525,14 @@ body, html {
     transition: opacity 0.2s;
 }
 
-.btn-tolak:hover:not(:disabled) { opacity: 0.85; }
-.btn-tolak:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-tolak:hover:not(:disabled) {
+    opacity: 0.85;
+}
+
+.btn-tolak:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
 
 .btn-plot {
     background-color: #7367F0;
@@ -511,7 +546,9 @@ body, html {
     transition: opacity 0.2s;
 }
 
-.btn-plot:hover { opacity: 0.85; }
+.btn-plot:hover {
+    opacity: 0.85;
+}
 
 .btn-edit-plot {
     background-color: #FF9F43;
@@ -525,7 +562,9 @@ body, html {
     transition: opacity 0.2s;
 }
 
-.btn-edit-plot:hover { opacity: 0.85; }
+.btn-edit-plot:hover {
+    opacity: 0.85;
+}
 
 .link-file {
     color: #1F6FEB;
@@ -545,7 +584,7 @@ body, html {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.45);
+    background: rgba(0, 0, 0, 0.45);
     z-index: 1000;
     justify-content: center;
     align-items: center;
@@ -562,14 +601,21 @@ body, html {
     border-radius: 14px;
     width: 460px;
     max-width: 95vw;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     animation: slideUp 0.25s ease;
 }
 
 @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to   { transform: translateY(0);   opacity: 1; }
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .modal-header {
@@ -598,7 +644,9 @@ body, html {
     transition: opacity 0.2s;
 }
 
-.modal-close:hover { opacity: 1; }
+.modal-close:hover {
+    opacity: 1;
+}
 
 .modal-body {
     padding: 24px;
@@ -681,7 +729,9 @@ body, html {
     transition: opacity 0.2s;
 }
 
-.btn-tolak-modal:hover { opacity: 0.85; }
+.btn-tolak-modal:hover {
+    opacity: 0.85;
+}
 
 .btn-setuju-modal {
     background-color: var(--green-btn);
@@ -695,7 +745,9 @@ body, html {
     transition: opacity 0.2s;
 }
 
-.btn-setuju-modal:hover { opacity: 0.85; }
+.btn-setuju-modal:hover {
+    opacity: 0.85;
+}
 
 /* =====================
    MODAL PLOT: info strip & fields
@@ -718,7 +770,9 @@ body, html {
     gap: 4px;
 }
 
-.modal-info-item:last-child { border-right: none; }
+.modal-info-item:last-child {
+    border-right: none;
+}
 
 .modal-info-label {
     font-size: 11px;
@@ -746,7 +800,9 @@ body, html {
     color: #444;
 }
 
-.required { color: #EA5455; }
+.required {
+    color: #EA5455;
+}
 
 .plot-select {
     width: 100%;
@@ -768,7 +824,7 @@ body, html {
 
 .plot-select:focus {
     border-color: #85B5D3;
-    box-shadow: 0 0 0 3px rgba(133,181,211,0.2);
+    box-shadow: 0 0 0 3px rgba(133, 181, 211, 0.2);
 }
 
 /* Dosen info box */
@@ -785,7 +841,9 @@ body, html {
     animation: fadeIn 0.25s;
 }
 
-.dosen-info-icon { font-size: 16px; }
+.dosen-info-icon {
+    font-size: 16px;
+}
 
 /* Modal batal button */
 .btn-batal-modal {
@@ -799,7 +857,10 @@ body, html {
     cursor: pointer;
     transition: background 0.2s;
 }
-.btn-batal-modal:hover { background: #E4E6EA; }
+
+.btn-batal-modal:hover {
+    background: #E4E6EA;
+}
 
 /* =====================
    PLOTTING TOOLBAR
@@ -823,10 +884,13 @@ body, html {
     padding: 8px 14px;
     flex: 1;
     max-width: 340px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
-.plot-search-icon { font-size: 15px; color: #AAB8C8; }
+.plot-search-icon {
+    font-size: 15px;
+    color: #AAB8C8;
+}
 
 .plot-search-input {
     border: none;
@@ -838,7 +902,9 @@ body, html {
     background: transparent;
 }
 
-.plot-search-input::placeholder { color: #B0BEC9; }
+.plot-search-input::placeholder {
+    color: #B0BEC9;
+}
 
 .plot-filter-group {
     display: flex;
@@ -858,7 +924,10 @@ body, html {
     font-family: 'Inter', sans-serif;
 }
 
-.plot-filter-btn:hover { border-color: #85B5D3; color: #1C334D; }
+.plot-filter-btn:hover {
+    border-color: #85B5D3;
+    color: #1C334D;
+}
 
 .plot-filter-btn.active {
     background: #1C334D;
@@ -911,7 +980,7 @@ body, html {
 }
 
 .dosen-rekap-card:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
     transform: translateY(-2px);
 }
 
@@ -936,7 +1005,10 @@ body, html {
     flex-shrink: 0;
 }
 
-.dosen-rekap-info { flex: 1; min-width: 0; }
+.dosen-rekap-info {
+    flex: 1;
+    min-width: 0;
+}
 
 .dosen-rekap-nama {
     font-size: 13px;
@@ -1016,7 +1088,9 @@ body, html {
     color: #1C334D;
 }
 
-.detail-anggota-section { margin-top: 4px; }
+.detail-anggota-section {
+    margin-top: 4px;
+}
 
 .detail-anggota-title {
     font-size: 13px;
@@ -1043,4 +1117,7 @@ body, html {
     font-weight: 500;
 }
 
-.belum { color: #AABBCC; font-style: italic; }
+.belum {
+    color: #AABBCC;
+    font-style: italic;
+}

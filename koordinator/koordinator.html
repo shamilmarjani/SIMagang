@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Koordinator Bidang - SIMM</title>
-    <meta name="description" content="Dashboard koordinator bidang untuk sistem manajemen magang JTI - monitoring kelompok, verifikasi, dan plotting.">
+    <meta name="description"
+        content="Dashboard koordinator bidang untuk sistem manajemen magang JTI - monitoring kelompok, verifikasi, dan plotting.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/koordinator.css">
 </head>
+
 <body>
     <div class="dashboard-layout">
 
         <!-- Sidebar -->
         <aside class="sidebar">
-            <a href="../../index.html" class="logo-container">
+            <a class="logo-container">
                 <div class="logo-icons">
                     <div class="logo-icon y"></div>
                     <div class="logo-icon b"></div>
@@ -47,7 +50,7 @@
             </nav>
 
             <div class="sidebar-footer">
-                <a href="../../auth/login.html" class="nav-item logout-btn">Logout</a>
+                <a href="../auth/login.html" class="nav-item logout-btn">Logout</a>
             </div>
         </aside>
 
@@ -110,7 +113,8 @@
                                     <td>5</td>
                                     <td>Proposal</td>
                                     <td><span class="badge badge-warning">Menunggu</span></td>
-                                    <td><button class="btn-verifikasi" onclick="bukaVerifikasi(this)">Verifikasi</button></td>
+                                    <td><button class="btn-verifikasi"
+                                            onclick="bukaVerifikasi(this)">Verifikasi</button></td>
                                 </tr>
                                 <tr>
                                     <td>Nama Kelompok</td>
@@ -118,7 +122,8 @@
                                     <td>4</td>
                                     <td>Info Kelompok</td>
                                     <td><span class="badge badge-info-status">Diperiksa</span></td>
-                                    <td><button class="btn-verifikasi" onclick="bukaVerifikasi(this)">Verifikasi</button></td>
+                                    <td><button class="btn-verifikasi"
+                                            onclick="bukaVerifikasi(this)">Verifikasi</button></td>
                                 </tr>
                                 <tr>
                                     <td>Nama Kelompok</td>
@@ -126,7 +131,8 @@
                                     <td>5</td>
                                     <td>Anggota</td>
                                     <td><span class="badge badge-danger">Gagal</span></td>
-                                    <td><button class="btn-verifikasi" onclick="bukaVerifikasi(this)">Verifikasi</button></td>
+                                    <td><button class="btn-verifikasi"
+                                            onclick="bukaVerifikasi(this)">Verifikasi</button></td>
                                 </tr>
                                 <tr>
                                     <td>Nama Kelompok</td>
@@ -134,7 +140,8 @@
                                     <td>5</td>
                                     <td>Proposal</td>
                                     <td><span class="badge badge-warning">Menunggu</span></td>
-                                    <td><button class="btn-verifikasi" onclick="bukaVerifikasi(this)">Verifikasi</button></td>
+                                    <td><button class="btn-verifikasi"
+                                            onclick="bukaVerifikasi(this)">Verifikasi</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -342,12 +349,16 @@
                 <div class="plotting-toolbar">
                     <div class="plot-search-wrap">
                         <span class="plot-search-icon">&#128269;</span>
-                        <input type="text" id="plot-search" class="plot-search-input" placeholder="Cari nama kelompok atau ketua..." oninput="filterTabelPlotting()">
+                        <input type="text" id="plot-search" class="plot-search-input"
+                            placeholder="Cari nama kelompok atau ketua..." oninput="filterTabelPlotting()">
                     </div>
                     <div class="plot-filter-group">
-                        <button class="plot-filter-btn active" id="filter-all" onclick="filterStatus('all', this)">Semua</button>
-                        <button class="plot-filter-btn" id="filter-selesai" onclick="filterStatus('selesai', this)">Selesai</button>
-                        <button class="plot-filter-btn" id="filter-menunggu" onclick="filterStatus('menunggu', this)">Belum Diplot</button>
+                        <button class="plot-filter-btn active" id="filter-all"
+                            onclick="filterStatus('all', this)">Semua</button>
+                        <button class="plot-filter-btn" id="filter-selesai"
+                            onclick="filterStatus('selesai', this)">Selesai</button>
+                        <button class="plot-filter-btn" id="filter-menunggu"
+                            onclick="filterStatus('menunggu', this)">Belum Diplot</button>
                     </div>
                 </div>
 
@@ -375,8 +386,10 @@
                                     <td class="col-dosen">Dr. Budi Santoso, M.Kom</td>
                                     <td><span class="badge badge-success-status">Selesai</span></td>
                                     <td class="aksi-plot-group">
-                                        <button class="btn-edit-plot" onclick="bukaModalPlot(this, true)">&#9998; Edit</button>
-                                        <button class="btn-detail-plot" onclick="bukaDetailKelompok(this)">Detail</button>
+                                        <button class="btn-edit-plot" onclick="bukaModalPlot(this, true)">&#9998;
+                                            Edit</button>
+                                        <button class="btn-detail-plot"
+                                            onclick="bukaDetailKelompok(this)">Detail</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -387,8 +400,10 @@
                                     <td class="col-dosen"><em class="belum">Belum ditentukan</em></td>
                                     <td><span class="badge badge-warning">Menunggu</span></td>
                                     <td class="aksi-plot-group">
-                                        <button class="btn-plot" onclick="bukaModalPlot(this, false)">&#43; Plot</button>
-                                        <button class="btn-detail-plot" onclick="bukaDetailKelompok(this)">Detail</button>
+                                        <button class="btn-plot" onclick="bukaModalPlot(this, false)">&#43;
+                                            Plot</button>
+                                        <button class="btn-detail-plot"
+                                            onclick="bukaDetailKelompok(this)">Detail</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -399,8 +414,10 @@
                                     <td class="col-dosen">Ir. Siti Rahayu, M.T</td>
                                     <td><span class="badge badge-success-status">Selesai</span></td>
                                     <td class="aksi-plot-group">
-                                        <button class="btn-edit-plot" onclick="bukaModalPlot(this, true)">&#9998; Edit</button>
-                                        <button class="btn-detail-plot" onclick="bukaDetailKelompok(this)">Detail</button>
+                                        <button class="btn-edit-plot" onclick="bukaModalPlot(this, true)">&#9998;
+                                            Edit</button>
+                                        <button class="btn-detail-plot"
+                                            onclick="bukaDetailKelompok(this)">Detail</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -411,8 +428,10 @@
                                     <td class="col-dosen"><em class="belum">Belum ditentukan</em></td>
                                     <td><span class="badge badge-warning">Menunggu</span></td>
                                     <td class="aksi-plot-group">
-                                        <button class="btn-plot" onclick="bukaModalPlot(this, false)">&#43; Plot</button>
-                                        <button class="btn-detail-plot" onclick="bukaDetailKelompok(this)">Detail</button>
+                                        <button class="btn-plot" onclick="bukaModalPlot(this, false)">&#43;
+                                            Plot</button>
+                                        <button class="btn-detail-plot"
+                                            onclick="bukaDetailKelompok(this)">Detail</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -423,8 +442,10 @@
                                     <td class="col-dosen"><em class="belum">Belum ditentukan</em></td>
                                     <td><span class="badge badge-warning">Menunggu</span></td>
                                     <td class="aksi-plot-group">
-                                        <button class="btn-plot" onclick="bukaModalPlot(this, false)">&#43; Plot</button>
-                                        <button class="btn-detail-plot" onclick="bukaDetailKelompok(this)">Detail</button>
+                                        <button class="btn-plot" onclick="bukaModalPlot(this, false)">&#43;
+                                            Plot</button>
+                                        <button class="btn-detail-plot"
+                                            onclick="bukaDetailKelompok(this)">Detail</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -435,8 +456,10 @@
                                     <td class="col-dosen"><em class="belum">Belum ditentukan</em></td>
                                     <td><span class="badge badge-warning">Menunggu</span></td>
                                     <td class="aksi-plot-group">
-                                        <button class="btn-plot" onclick="bukaModalPlot(this, false)">&#43; Plot</button>
-                                        <button class="btn-detail-plot" onclick="bukaDetailKelompok(this)">Detail</button>
+                                        <button class="btn-plot" onclick="bukaModalPlot(this, false)">&#43;
+                                            Plot</button>
+                                        <button class="btn-detail-plot"
+                                            onclick="bukaDetailKelompok(this)">Detail</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -469,10 +492,14 @@
                 <button class="modal-close" onclick="tutupModalBtn()">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-row"><span class="modal-label">Nama Kelompok</span><span class="modal-val" id="mKelompok">-</span></div>
-                <div class="modal-row"><span class="modal-label">Ketua</span><span class="modal-val" id="mKetua">-</span></div>
-                <div class="modal-row"><span class="modal-label">Jenis Verifikasi</span><span class="modal-val" id="mJenis">-</span></div>
-                <div class="modal-row"><span class="modal-label">Status Saat Ini</span><span class="modal-val" id="mStatus">-</span></div>
+                <div class="modal-row"><span class="modal-label">Nama Kelompok</span><span class="modal-val"
+                        id="mKelompok">-</span></div>
+                <div class="modal-row"><span class="modal-label">Ketua</span><span class="modal-val"
+                        id="mKetua">-</span></div>
+                <div class="modal-row"><span class="modal-label">Jenis Verifikasi</span><span class="modal-val"
+                        id="mJenis">-</span></div>
+                <div class="modal-row"><span class="modal-label">Status Saat Ini</span><span class="modal-val"
+                        id="mStatus">-</span></div>
                 <div class="modal-catatan">
                     <label for="catatan-modal">Catatan (opsional)</label>
                     <textarea id="catatan-modal" placeholder="Tulis catatan untuk kelompok ini..."></textarea>
@@ -545,7 +572,8 @@
                     </div>
                 </div>
 
-                <p id="plot-error" style="color:#EA5455;font-size:12px;margin-top:4px;display:none;">Harap pilih lokasi dan dosen pembimbing.</p>
+                <p id="plot-error" style="color:#EA5455;font-size:12px;margin-top:4px;display:none;">Harap pilih lokasi
+                    dan dosen pembimbing.</p>
             </div>
             <div class="modal-footer">
                 <button class="btn-batal-modal" onclick="tutupModalPlotBtn()">Batal</button>
@@ -566,11 +594,13 @@
             </div>
             <div class="modal-footer">
                 <button class="btn-batal-modal" onclick="tutupDetail()">Tutup</button>
-                <button class="btn-setuju-modal" id="detail-to-plot-btn" onclick="lanjutPlotDariDetail()">&#9998; Plot Kelompok Ini</button>
+                <button class="btn-setuju-modal" id="detail-to-plot-btn" onclick="lanjutPlotDariDetail()">&#9998; Plot
+                    Kelompok Ini</button>
             </div>
         </div>
     </div>
 
     <script src="../js/koordinator.js"></script>
 </body>
+
 </html>

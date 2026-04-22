@@ -14,7 +14,8 @@
     font-family: 'Inter', sans-serif;
 }
 
-body, html {
+body,
+html {
     height: 100%;
     width: 100%;
     background-color: var(--bg-light);
@@ -35,20 +36,12 @@ body, html {
     display: flex;
     flex-direction: column;
     padding: 30px 0;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
 /* A thin blue border on the right to match design closely */
-.sidebar::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 3px;
-    background-color: #00A3FF;
-}
+
 
 .logo-container {
     display: flex;
@@ -76,9 +69,17 @@ body, html {
     font-size: 11px;
 }
 
-.logo-icon.y { background-color: #4CAF50;}
-.logo-icon.b { background-color: #F44336;}
-.logo-icon.c { background-color: #03A9F4;}
+.logo-icon.y {
+    background-color: #4CAF50;
+}
+
+.logo-icon.b {
+    background-color: #F44336;
+}
+
+.logo-icon.c {
+    background-color: #03A9F4;
+}
 
 .logo-text-inner {
     display: inline-flex;
@@ -117,11 +118,11 @@ body, html {
 }
 
 .nav-item:hover {
-    background-color: rgba(255,255,255,0.05);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .nav-item.active {
-    background: linear-gradient(90deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
     color: white;
 }
 
@@ -131,7 +132,7 @@ body, html {
 
 .logout-btn {
     display: block;
-    background: linear-gradient(90deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 /* Main Content */
@@ -146,7 +147,7 @@ body, html {
 .card {
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
     margin-bottom: 25px;
     border: 1px solid #EFEFEF;
     overflow: hidden;
@@ -187,12 +188,13 @@ body, html {
 /* Welcome Card */
 .welcome-card {
     background: white;
-    border-radius: 50px; /* Pill shape */
+    border-radius: 50px;
+    /* Pill shape */
     padding: 15px 30px;
     display: flex;
     align-items: center;
     gap: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     margin-bottom: 30px;
 }
 
@@ -202,18 +204,20 @@ body, html {
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .welcome-text h2 {
     font-size: 24px;
-    font-weight: 400; /* Looks slightly thinner than bold */
+    font-weight: 400;
+    /* Looks slightly thinner than bold */
     margin-bottom: 5px;
 }
 
 .welcome-text p {
     font-size: 13px;
-    color: #000; /* High contrast */
+    color: #000;
+    /* High contrast */
     font-weight: 500;
 }
 
@@ -251,7 +255,8 @@ body, html {
 }
 
 .badge-success {
-    background-color: #AAF078; /* Light green */
+    background-color: #AAF078;
+    /* Light green */
     color: #111;
 }
 
@@ -275,7 +280,8 @@ body, html {
 }
 
 .btn-light-blue {
-    background-color: #8EB9D4; /* Subdued light blue matching the image */
+    background-color: #8EB9D4;
+    /* Subdued light blue matching the image */
     color: #111;
 }
 
@@ -299,7 +305,8 @@ body, html {
 .stepper-container::before {
     content: '';
     position: absolute;
-    top: 25px; /* Center of the 50px circles */
+    top: 25px;
+    /* Center of the 50px circles */
     left: 40px;
     right: 40px;
     height: 2px;
@@ -332,7 +339,8 @@ body, html {
 }
 
 .step.active .step-circle {
-    background-color: #87CEEB; /* Match the active light blue step */
+    background-color: #87CEEB;
+    /* Match the active light blue step */
 }
 
 .step-title {
@@ -358,7 +366,8 @@ body, html {
 }
 
 .table th {
-    background-color: #85B5D3; /* Header blue color matching image */
+    background-color: #85B5D3;
+    /* Header blue color matching image */
     color: #222;
     font-weight: 600;
     font-size: 14px;
@@ -604,6 +613,7 @@ body, html {
 .tahap-container.locked {
     opacity: 0.6;
 }
+
 .tahap-container.locked .t-body {
     display: none;
 }

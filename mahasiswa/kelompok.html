@@ -1,21 +1,345 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelompok Magang - SIMM</title>
-    <!-- Use Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        /* ── Access Banner ── */
+        .access-banner {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: #EEF2FF;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 28px;
+            border: 1px solid #C7D2FE;
+        }
+
+        .access-banner-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #6366F1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .access-banner-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .access-banner-text h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #3730A3;
+            margin-bottom: 4px;
+        }
+
+        .access-banner-text p {
+            font-size: 13px;
+            color: #4338CA;
+            margin: 0;
+        }
+
+        .access-banner-text span {
+            font-weight: 700;
+        }
+
+        /* ── Section Header ── */
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .section-header-text h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1C334D;
+            margin-bottom: 4px;
+        }
+
+        .section-header-text p {
+            font-size: 13px;
+            color: #7B8FA1;
+        }
+
+        /* ── Tambah Anggota Button ── */
+        .btn-tambah {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #1F3653;
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            white-space: nowrap;
+        }
+
+        .btn-tambah:hover {
+            background-color: #2A486C;
+            transform: translateY(-1px);
+        }
+
+        .btn-tambah svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+
+        /* ── Member Grid ── */
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        /* Filled member card */
+        .member-grid-card {
+            background: white;
+            border: 1px solid #E8EDF3;
+            border-radius: 16px;
+            padding: 24px 16px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(28, 51, 77, 0.07);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .member-grid-card:hover {
+            box-shadow: 0 6px 20px rgba(28, 51, 77, 0.13);
+            transform: translateY(-2px);
+        }
+
+        .member-grid-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #E8EDF3;
+            margin-bottom: 14px;
+            background-color: #C7D5E0;
+        }
+
+        .member-grid-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1C334D;
+            margin-bottom: 4px;
+        }
+
+        .member-grid-nim {
+            font-size: 12px;
+            color: #7B8FA1;
+            margin-bottom: 6px;
+        }
+
+        .member-grid-phone {
+            font-size: 12px;
+            color: #7B8FA1;
+            margin-bottom: 14px;
+        }
+
+        .badge-anggota {
+            background: #DBE9F4;
+            color: #1C334D;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Slot wrapper — memenuhi sel grid */
+        .member-grid-slot {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .member-grid-slot .member-grid-card,
+        .member-grid-slot .member-grid-empty {
+            flex: 1;
+        }
+
+        /* Empty slot card */
+        .member-grid-empty {
+            background: #F8FAFC;
+            border: 2px dashed #D0DCE8;
+            border-radius: 16px;
+            padding: 24px 16px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 210px;
+            color: #A0B2C0;
+            gap: 8px;
+        }
+
+        .member-grid-empty svg {
+            width: 40px;
+            height: 40px;
+            opacity: 0.4;
+        }
+
+        .member-grid-empty span {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .slot-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #B0BEC5;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── Modal ── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(2px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-box {
+            background: white;
+            border-radius: 18px;
+            padding: 36px 32px 28px;
+            width: 420px;
+            max-width: 95vw;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transform: translateY(20px);
+            transition: transform 0.25s;
+        }
+
+        .modal-overlay.open .modal-box {
+            transform: translateY(0);
+        }
+
+        .modal-box h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1C334D;
+            margin-bottom: 24px;
+        }
+
+        .modal-field {
+            margin-bottom: 18px;
+        }
+
+        .modal-field label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: #7B8FA1;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .modal-field input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #222;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .modal-field input:focus {
+            border-color: #87CEEB;
+            box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.25);
+        }
+
+        .modal-field input::placeholder {
+            color: #B0BEC5;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .btn-batal {
+            background: none;
+            border: none;
+            color: #7B8FA1;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: background 0.15s;
+        }
+
+        .btn-batal:hover {
+            background: #F1F5F9;
+        }
+
+        .btn-simpan {
+            background: #1F3653;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-simpan:hover {
+            background: #2A486C;
+        }
+    </style>
 </head>
+
 <body>
     <div class="dashboard-layout">
-        
+
         <!-- Sidebar -->
         <aside class="sidebar">
-            <a href="../../index.html" class="logo-container">
+            <a class="logo-container">
                 <div class="logo-icons">
                     <div class="logo-icon y"></div>
                     <div class="logo-icon b"></div>
@@ -26,113 +350,216 @@
                     <span class="logo-text-desc">JURUSAN<br>TEKNOLOGI<br>INFORMASI</span>
                 </div>
             </a>
-            
+
             <nav class="sidebar-nav">
-                <a href="dashboard.html" class="nav-item">Dashbord</a>
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
                 <a href="kelompok.html" class="nav-item active">Kelompok</a>
                 <a href="pendaftaran.html" class="nav-item">Pendaftaran</a>
                 <a href="profil.html" class="nav-item">Profil</a>
             </nav>
-            
+
             <div class="sidebar-footer">
-                <a href="../../auth/login.html" class="nav-item logout-btn">Logout</a>
+                <a href="../auth/login.html" class="nav-item logout-btn">Logout</a>
             </div>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
-            
-            <!-- Kelompok Card -->
-            <div class="card kelompok-card">
-                <div class="card-header dark">
-                    <h3>Kelompok Magang Saya</h3>
+
+            <!-- Access Banner -->
+            <div class="access-banner">
+                <div class="access-banner-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z" />
+                    </svg>
                 </div>
-
-                <div class="card-body" style="padding-top: 20px;">
-
-                    <!-- Ketua Kelompok -->
-                    <h4 class="member-section-title">Ketua Kelompok</h4>
-                    <div class="member-card">
-                        <div class="member-avatar"></div>
-                        <div class="member-info">
-                            <div class="member-name-row">
-                                <h4>Sultan</h4>
-                                <span class="badge-role">Ketua</span>
-                            </div>
-                            <p class="member-nim">NIM: 123456789</p>
-                        </div>
-                        <div class="member-status">
-                            <span class="badge-status">Berkas Lengkap</span>
-                        </div>
-                    </div>
-
-                    <!-- Anggota -->
-                    <h4 class="member-section-title" style="margin-top: 24px;">Anggota</h4>
-                    <div id="member-list-container">
-                        <!-- Daftar anggota akan ditambahkan di sini -->
-                    </div>
-
-                    <!-- Form Tambah Anggota -->
-                    <div class="add-member-form" style="margin-top: 30px; background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #EAEAEA;">
-                        <h5 style="margin-bottom: 15px; font-size: 15px; font-weight: 600; color: #222;">Tambah Anggota Baru</h5>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Nama Mahasiswa</label>
-                                <input type="text" id="new-member-name" placeholder="Masukkan Nama">
-                            </div>
-                            <div class="form-group">
-                                <label>NIM</label>
-                                <input type="text" id="new-member-nim" placeholder="Masukkan NIM">
-                            </div>
-                        </div>
-                        <div class="form-actions" style="margin-top: 20px;">
-                            <button type="button" class="btn btn-dark" id="btn-tambah-anggota">Tambah Anggota</button>
-                        </div>
-                    </div>
-
+                <div class="access-banner-text">
+                    <h4>Akses Terbatas: Ketua Kelompok</h4>
+                    <p>Hanya Ketua Kelompok (<span>e41252686</span>) yang memiliki otoritas untuk mengelola anggota dan
+                        melakukan pendaftaran.</p>
                 </div>
             </div>
+
+            <!-- Card Anggota Kelompok -->
+            <div class="card">
+
+                <!-- Card Header: judul + deskripsi + tombol -->
+                <div class="card-header light"
+                    style="display:flex; align-items:center; justify-content:space-between; padding: 20px 28px;">
+                    <div>
+                        <h3 style="font-size:18px; font-weight:700; color:#1C334D; margin-bottom:4px;">Anggota Kelompok
+                        </h3>
+                        <p style="font-size:13px; color:#7B8FA1; margin:0;">Minimal 3 orang, Maksimal 4 orang anggota.
+                        </p>
+                    </div>
+                    <button class="btn-tambah" id="btn-open-modal">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                        Tambah Anggota
+                    </button>
+                </div>
+
+                <!-- Card Body: grid 4 slot satu baris -->
+                <div class="card-body">
+                    <div class="member-grid" id="member-grid">
+
+                        <!-- Slot 1: Ketua -->
+                        <div class="member-grid-slot" id="slot-0">
+                            <div class="member-grid-empty">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#A0B2C0">
+                                    <path
+                                        d="M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z" />
+                                </svg>
+                                <span class="slot-label">Ketua</span>
+                            </div>
+                        </div>
+
+                        <!-- Slot 2: Anggota 1 -->
+                        <div class="member-grid-slot" id="slot-1">
+                            <div class="member-grid-empty">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#A0B2C0">
+                                    <path
+                                        d="M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z" />
+                                </svg>
+                                <span class="slot-label">Anggota 1</span>
+                            </div>
+                        </div>
+
+                        <!-- Slot 3: Anggota 2 -->
+                        <div class="member-grid-slot" id="slot-2">
+                            <div class="member-grid-empty">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#A0B2C0">
+                                    <path
+                                        d="M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z" />
+                                </svg>
+                                <span class="slot-label">Anggota 2</span>
+                            </div>
+                        </div>
+
+                        <!-- Slot 4: Anggota 3 -->
+                        <div class="member-grid-slot" id="slot-3">
+                            <div class="member-grid-empty">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#A0B2C0">
+                                    <path
+                                        d="M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z" />
+                                </svg>
+                                <span class="slot-label">Anggota 3</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div><!-- /card -->
 
         </main>
     </div>
 
-    <script>
-        // Fitur Tambah Anggota
-        document.getElementById('btn-tambah-anggota').addEventListener('click', () => {
-            const nameInput = document.getElementById('new-member-name');
-            const nimInput  = document.getElementById('new-member-nim');
-            const name = nameInput.value.trim();
-            const nim  = nimInput.value.trim();
+    <!-- Modal Tambah Anggota -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-box">
+            <h3>Tambah Anggota</h3>
 
-            if (name && nim) {
-                const memberList = document.getElementById('member-list-container');
-                
-                const card = document.createElement('div');
-                card.className = 'member-card';
-                card.innerHTML = `
-                    <div class="member-avatar"></div>
-                    <div class="member-info">
-                        <div class="member-name-row">
-                            <h4>${name}</h4>
-                            <span class="badge-role" style="background:#E8F4FF;color:#1C334D;">Anggota</span>
-                        </div>
-                        <p class="member-nim">NIM: ${nim}</p>
-                    </div>
-                    <div class="member-status">
-                        <span class="badge-status" style="background:#FFF0DC;color:#FF9F43;">Berkas Belum</span>
-                    </div>
-                `;
-                
-                memberList.appendChild(card);
-                
-                // Reset input
-                nameInput.value = '';
-                nimInput.value  = '';
-            } else {
-                alert('Mohon isi Nama dan NIM terlebih dahulu!');
+            <div class="modal-field">
+                <label>Nama Mahasiswa</label>
+                <input type="text" id="input-nama" placeholder="Masukkan nama lengkap...">
+            </div>
+            <div class="modal-field">
+                <label>NIM</label>
+                <input type="text" id="input-nim" placeholder="NIM...">
+            </div>
+            <div class="modal-field">
+                <label>No Telepon</label>
+                <input type="text" id="input-telp" placeholder="0812...">
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-batal" id="btn-batal">BATAL</button>
+                <button class="btn-simpan" id="btn-simpan">SIMPAN</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ── State ──
+        // memberCount: berapa slot yang sudah terisi (0 = semua kosong)
+        let memberCount = 0;
+        const MAX_MEMBERS = 4;
+
+        // Slot labels: index 0 = Ketua, 1-3 = Anggota 1-3
+        const slotLabels = ['Ketua', 'Anggota 1', 'Anggota 2', 'Anggota 3'];
+        const badgeLabels = ['KETUA', 'ANGGOTA', 'ANGGOTA', 'ANGGOTA'];
+        const badgeColors = [
+            { bg: '#FFF3CD', color: '#856404' },  // kuning emas untuk Ketua
+            { bg: '#DBE9F4', color: '#1C334D' },
+            { bg: '#DBE9F4', color: '#1C334D' },
+            { bg: '#DBE9F4', color: '#1C334D' },
+        ];
+
+        // ── Modal open / close ──
+        const overlay = document.getElementById('modal-overlay');
+        const btnOpen = document.getElementById('btn-open-modal');
+        const btnBatal = document.getElementById('btn-batal');
+
+        btnOpen.addEventListener('click', () => {
+            if (memberCount >= MAX_MEMBERS) {
+                alert('Kelompok sudah penuh (maksimal 4 anggota termasuk ketua).');
+                return;
             }
+            // Ubah judul modal sesuai giliran
+            document.querySelector('#modal-overlay h3').textContent =
+                memberCount === 0 ? 'Tambah Ketua Kelompok' : 'Tambah Anggota';
+            overlay.classList.add('open');
+            document.getElementById('input-nama').focus();
+        });
+
+        function closeModal() {
+            overlay.classList.remove('open');
+            document.getElementById('input-nama').value = '';
+            document.getElementById('input-nim').value = '';
+            document.getElementById('input-telp').value = '';
+        }
+
+        btnBatal.addEventListener('click', closeModal);
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+
+        // ── Add member ──
+        document.getElementById('btn-simpan').addEventListener('click', () => {
+            const nama = document.getElementById('input-nama').value.trim();
+            const nim = document.getElementById('input-nim').value.trim();
+            const telp = document.getElementById('input-telp').value.trim();
+
+            if (!nama || !nim) {
+                alert('Nama dan NIM wajib diisi!');
+                return;
+            }
+
+            const slotIndex = memberCount; // 0 = Ketua, 1,2,3 = Anggota
+            const label = badgeLabels[slotIndex];
+            const colors = badgeColors[slotIndex];
+
+            // Isi slot yang bersangkutan
+            const slot = document.getElementById('slot-' + slotIndex);
+            slot.innerHTML = `
+                <div class="member-grid-card">
+                    <img class="member-grid-avatar"
+                         src="https://ui-avatars.com/api/?name=${encodeURIComponent(nama)}&background=1F3653&color=fff&size=72"
+                         alt="Avatar ${nama}">
+                    <div class="member-grid-name">${nama}</div>
+                    <div class="member-grid-nim">${nim}</div>
+                    <div class="member-grid-phone">${telp || '-'}</div>
+                    <span class="badge-anggota" style="background:${colors.bg};color:${colors.color};">${label}</span>
+                </div>
+            `;
+
+            memberCount++;
+            closeModal();
         });
     </script>
     <script src="../js/mahasiswa.js"></script>
 </body>
+
 </html>
