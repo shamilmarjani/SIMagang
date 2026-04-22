@@ -165,14 +165,14 @@
             </a>
 
             <nav class="sidebar-nav">
-                <a href="dashboard.html" class="nav-item">Dashbord</a>
-                <a href="kelompok.html" class="nav-item">Kelompok</a>
-                <a href="pendaftaran.html" class="nav-item active">Pendaftaran</a>
-                <a href="profil.html" class="nav-item">Profil</a>
+                <a href="dashboard.php" class="nav-item">Dashbord</a>
+                <a href="kelompok.php" class="nav-item">Kelompok</a>
+                <a href="pendaftaran.php" class="nav-item active">Pendaftaran</a>
+                <a href="profil.php" class="nav-item">Profil</a>
             </nav>
 
             <div class="sidebar-footer">
-                <a href="../auth/login.html" class="nav-item logout-btn">Logout</a>
+                <a href="../index.php" class="nav-item logout-btn">Logout</a>
             </div>
         </aside>
 

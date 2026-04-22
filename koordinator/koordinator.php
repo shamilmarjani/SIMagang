@@ -31,7 +31,7 @@
             </a>
 
             <nav class="sidebar-nav">
-                <a href="koordinator.html" class="nav-item active" id="nav-dashboard">Dashbord</a>
+                <a href="koordinator.php" class="nav-item active" id="nav-dashboard">Dashbord</a>
 
                 <!-- Verifikasi dengan submenu -->
                 <div class="nav-group" id="nav-verifikasi-group">
@@ -50,7 +50,7 @@
             </nav>
 
             <div class="sidebar-footer">
-                <a href="../auth/login.html" class="nav-item logout-btn">Logout</a>
+                <a href="../auth/login.php" class="nav-item logout-btn">Logout</a>
             </div>
         </aside>
 

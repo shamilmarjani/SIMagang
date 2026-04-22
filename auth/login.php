@@ -17,7 +17,7 @@
     <div class="background-container"></div>
 
     <header class="navbar">
-        <a href="../index.html" class="logo-container">
+        <a href="../index.php" class="logo-container">
             <div class="logo-icons">
                 <div class="logo-icon y"></div>
                 <div class="logo-icon b"></div>
@@ -31,8 +31,8 @@
             </div>
         </a>
         <div class="nav-links">
-            <a href="login.html" id="link-login">login</a>
-            <a href="register.html" id="link-daftar" class="btn-daftar">daftar</a>
+            <a href="login.php" id="link-login">Login</a>
+            <a href="register.php" id="link-daftar" class="btn-daftar">Daftar</a>
         </div>
     </header>
 
@@ -42,7 +42,7 @@
             <div class="split-half">
                 <div class="form-container" style="margin-left: auto; margin-right: 15%;">
                     <h2>Login</h2>
-                    <form id="login-form" onsubmit="handleLogin(event)">
+                    <form action="../mahasiswa/dashboard.php" id="login-form" onsubmit="handleLogin(event)">
                         <div class="form-group">
                             <label>Email</label>
                             <input type="email" id="login-email" placeholder="sultansalahuddin@students.college.ac.id"
@@ -96,9 +96,9 @@
 
             // Redirect sesuai role yang dipilih
             if (role === 'korbid') {
-                window.location.href = '../koordinator/koordinator.html';
+                window.location.href = '../koordinator/koordinator.php' ;
             } else {
-                window.location.href = '../mahasiswa/dashboard.html';
+                window.location.href = '../mahasiswa/dashboard.php';
             }
         }
     </script>

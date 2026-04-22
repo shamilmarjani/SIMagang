@@ -17,7 +17,7 @@
     <div class="background-container"></div>
 
     <header class="navbar">
-        <a href="index.html" class="logo-container">
+        <a href="index.php" class="logo-container">
             <div class="logo-icons">
                 <div class="logo-icon y"></div>
                 <div class="logo-icon b"></div>
@@ -31,8 +31,8 @@
             </div>
         </a>
         <div class="nav-links">
-            <a href="auth/login.html" id="link-login">login</a>
-            <a href="auth/register.html" id="link-daftar" class="btn-daftar">daftar</a>
+            <a href="auth/login.php" id="link-login">Login</a>
+            <a href="auth/register.php" id="link-daftar" class="btn-daftar">Daftar</a>
         </div>
     </header>
 
@@ -41,7 +41,7 @@
         <section class="home-view">
             <h1>Sistem Informasi Magang<br>Mahasiswa</h1>
             <p>Selamat Datang Mahasiswa Jurusan<br>Teknologi Informasi</p>
-            <a href="auth/login.html" class="btn-login-home">Login</a>
+            <a href="auth/login.php" class="btn-login-home">Login</a>
         </section>
     </div>
 
