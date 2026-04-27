@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -11,6 +12,22 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
+    <?php if (isset($_SESSION['error'])): ?>
+        <div id="error-toast" style="position: fixed; top: 20px; right: 20px; background-color: #f44336; color: white; padding: 15px 25px; border-radius: 8px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-family: 'Inter', sans-serif; font-weight: 500; opacity: 1; transition: opacity 0.5s ease;">
+            <?= htmlspecialchars($_SESSION['error']); ?>
+        </div>
+        <script>
+            setTimeout(function() {
+                var toast = document.getElementById('error-toast');
+                if(toast) {
+                    toast.style.opacity = '0';
+                    setTimeout(function() { toast.style.display = 'none'; }, 500);
+                }
+            }, 3500);
+        </script>
+        <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
 
     <div class="background-container"></div>
 
@@ -46,26 +63,26 @@
             <div class="split-half">
                 <div class="form-container">
                     <h2>Daftar Akun</h2>
-                    <form action="login.php" method="GET">
+                    <form action="prosesRegister.php" method="POST" novalidate>
                         <div class="form-group">
                             <label>Nama</label>
-                            <input type="text" placeholder="Sultan Salahuddin" required>
+                            <input type="text" name="nama" placeholder="Sultan Salahuddin" required>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" placeholder="sultansalahuddin@students.college.ac.id" required>
+                            <input type="email" name="email" placeholder="sultansalahuddin@students.college.ac.id" required>
                         </div>
                         <div class="form-group">
                             <label>No. Telepon</label>
-                            <input type="tel" placeholder="081234567890" required>
+                            <input type="tel" name="no_tlp" placeholder="081234567890" required>
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" placeholder="Sultan3587" required>
+                            <input type="password" name="password" placeholder="Sultan3587" required>
                         </div>
                         <div class="form-group">
                             <label>Konfirmasi Password</label>
-                            <input type="password" placeholder="Sultan3587" required>
+                            <input type="password" name="konfirmasi_password" placeholder="Sultan3587" required>
                         </div>
                         <button type="submit" class="btn-submit">Daftar</button>
                     </form>
