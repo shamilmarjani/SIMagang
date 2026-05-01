@@ -1,3 +1,38 @@
+<?php
+session_start();
+
+$is_invalid = false;
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $mysqli = require __DIR__ . "/database.php";
+
+    $sql = sprintf(
+        "SELECT * FROM user WHERE email = '%s'",
+        $mysqli->real_escape_string($_POST["email"])
+    );
+
+    $result = $mysqli->query($sql);
+
+    $user = $result->fetch_assoc();
+
+    if ($user) {
+        if (password_verify($_POST["password"], $user["password_hash"])) {
+            session_regenerate_id();
+            $_SESSION["user_id"] = $user["id"];
+            $_SESSION["role"] = $_POST["role"];
+            
+            if ($_POST["role"] === 'korbid') {
+                header("Location: ../koordinator/koordinator.php");
+            } else {
+                header("Location: ../mahasiswa/dashboard.php");
+            }
+            exit;
+        }
+    }
+    
+    $is_invalid = true;
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -42,26 +77,34 @@
             <div class="split-half">
                 <div class="form-container" style="margin-left: auto; margin-right: 15%;">
                     <h2>Login</h2>
-                    <form action="../mahasiswa/dashboard.php" id="login-form" onsubmit="handleLogin(event)">
+                    <?php if (isset($_SESSION['success'])): ?>
+                        <div style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #c3e6cb; font-size: 14px;">
+                            <?= $_SESSION['success'] ?>
+                        </div>
+                        <?php unset($_SESSION['success']); ?>
+                    <?php endif; ?>
+
+                    <form method="POST" id="login-form">
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" id="login-email" placeholder="sultansalahuddin@students.college.ac.id"
-                                required>
+                            <input type="email" name="email" id="login-email" placeholder="sultansalahuddin@students.college.ac.id"
+                                required value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" id="login-password" placeholder="••••••••" required>
+                            <input type="password" name="password" id="login-password" placeholder="••••••••" required>
                         </div>
                         <div class="form-group">
                             <label>Role</label>
-                            <select id="login-role" required class="form-control">
+                            <select name="role" id="login-role" required class="form-control">
                                 <option value="">-- Pilih Role --</option>
                                 <option value="mahasiswa">Mahasiswa</option>
                                 <option value="korbid">Koordinator Bidang</option>
                             </select>
                         </div>
-                        <p id="login-error" style="color:#EA5455;font-size:13px;margin-bottom:8px;display:none;">Email,
-                            password, atau role tidak valid.</p>
+                        <?php if ($is_invalid): ?>
+                            <p id="login-error" style="color:#EA5455;font-size:13px;margin-bottom:8px;">Email atau password salah.</p>
+                        <?php endif; ?>
                         <button type="submit" class="btn-submit">Login</button>
                     </form>
                 </div>
@@ -76,32 +119,7 @@
         </section>
     </div>
 
-    <script>
-        function handleLogin(e) {
-            e.preventDefault();
 
-            const email = document.getElementById('login-email').value.trim();
-            const password = document.getElementById('login-password').value;
-            const role = document.getElementById('login-role').value;
-            const errEl = document.getElementById('login-error');
-
-            // Validasi: pastikan email dan password diisi, dan role dipilih
-            if (!email || !password || !role) {
-                errEl.textContent = 'Harap lengkapi semua field.';
-                errEl.style.display = 'block';
-                return;
-            }
-
-            errEl.style.display = 'none';
-
-            // Redirect sesuai role yang dipilih
-            if (role === 'korbid') {
-                window.location.href = '../koordinator/koordinator.php' ;
-            } else {
-                window.location.href = '../mahasiswa/dashboard.php';
-            }
-        }
-    </script>
 
 </body>
 
