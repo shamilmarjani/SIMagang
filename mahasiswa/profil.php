@@ -254,7 +254,7 @@
             </nav>
 
             <div class="sidebar-footer">
-                <a href="../index.php" class="nav-item logout-btn">Logout</a>
+                <a href="../auth/logout.php" class="nav-item logout-btn">Logout</a>
             </div>
         </aside>
 
